@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/calculator.css">
+    <link rel="stylesheet" href="/css/kalorycznosc.css">
+    <link rel="stylesheet" href="/css/bmi.css">
     <link rel="icon" type="image/x-icon" href="/img/icon.ico">
     <script src="https://kit.fontawesome.com/6148c38128.js" crossorigin="anonymous"></script>
 
@@ -39,7 +41,6 @@
         document.getElementById('nav_button').style.display = 'block';
       }
 
-
     </script>
 
 
@@ -60,7 +61,7 @@
 
 
 <!---------------- NAV BUTTON ---------------->
-  <button id="nav_button" onclick="nav_click();"><i class="fa-solid fa-bars"></i></button>
+  <button id="nav_button" onclick="nav_click();" title="Menu"><i class="fa-solid fa-bars"></i></button>
 <!-------------------------------->
 
 
@@ -68,12 +69,12 @@
 <!-------------- NAVBAR ------------------>
   <nav id="navbar">
     <div class="categories">
-      <a href="" title="Porównuje śmieciowe jedzenie ze wszystkimi zdrowymi znajdującymi się w bazie danych."><p><i class="fa-solid fa-calculator"></i> Kalkulator kalorii</p></a>
-      <a href="" title="Porównuje śmieciowe jedzenie, z jedzeniem wybranym przez użytkownika."><p><i class="fa-solid fa-burger"></i> Porównywarka jedzenia</p></a>
-      <a href="" title="Losuje zdrowe jedzenie do wybranego śmiechowego jedzenia."><p><i class="fa-solid fa-circle-question"></i> Losowanie</p></a>
+      <a href="index.php" title="Porównuje niezdrowe jedzenie ze wszystkimi zdrowymi znajdującymi się w bazie danych."><p><i class="fa-solid fa-burger"></i> Porównywanie produktów</p></a>
+      <a href="index.php?p=kalorycznosc" title="Oblicza twoje zapotrzebowanie kaloryczne."><p><i class="fa-solid fa-calculator"></i> Zapotrzebowanie kaloryczne</p></a>
+      <a href="index.php?p=kal_bmi" title="Oblicza twoje BMI."><p><i class="fa-solid fa-weight-scale"></i> BMI</p></a>
     </div>
     <div class="nav_footer">
-    <p>Strona stworzona przez: <a href="https://github.com/GoodNightPL" target="_blank" style="color: #303030; text-decoration: none;">Konrad Niemiec</a>, <a href="https://github.com/szymcz0k" target="_blank" style="color: #303030; text-decoration: none;">Szymon Leja</a></p>
+      <p>Strona stworzona przez: <a href="https://github.com/GoodNightPL" target="_blank" style="color: #303030; text-decoration: none;">Konrad Niemiec</a>, <a href="https://github.com/szymcz0k" target="_blank" style="color: #303030; text-decoration: none;">Szymon Leja</a></p>
       <a href="https://github.com/GoodNightPL" target="_blank" style="color: #414141; text-decoration: none;"><i class="fa-brands fa-github"></i></a>
     </div>
   </nav>
@@ -82,7 +83,24 @@
 
 <!-------------- MAIN ------------------>
 <main>
-<?php include('kal_kalorii.php'); ?>
+<?php
+if (isset($_GET["p"])) {
+  if ($_GET["p"] == "kalorycznosc") {
+    include('kalorycznosc.php');
+  }
+  else if ($_GET["p"] == "kal_bmi") {
+    include('kal_bmi.php');
+  }
+}
+else {
+  if (isset($_GET["id"]) and isset($_GET["g"])) {
+    $GLOBALS["id"] = $_GET["id"];
+    $GLOBALS["g"] = $_GET["g"];
+  }
+    include('kal_kalorii.php');
+}
+
+?>
 </main>
 <!-------------------------------->
 

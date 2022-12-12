@@ -1,0 +1,70 @@
+@media screen and (max-width: 755px) {
+
+    article {
+        margin-top: 80px;
+        display:flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+.kekw {
+    text-align: center;
+    align-items: center;
+    margin:auto;
+    margin-bottom: 5px;
+}
+
+#kaloryczność {
+    width: 100px;
+    height: 100vh;
+    font-size: 40px;
+    display: block;
+    padding: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#gender {
+    margin-left: 10px;
+}
+
+.plec_div {
+    width: 100%;
+    display: inline-block;
+}
+
+form {
+    font-size: 23px;
+}
+
+
+select {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+#obliczanie {
+    display: block;
+    border: none;
+    background-color: #8f6f2f;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    width: calc(fit-content+15px);
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    #obliczanie:hover {
+        background-color: #745c2e;
+    }
+}
